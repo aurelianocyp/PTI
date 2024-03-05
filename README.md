@@ -1,40 +1,4 @@
-# PTI: Pivotal Tuning for Latent-based editing of Real Images     (ACM TOG 2022)
 
-<!-- > Recently, a surge of advanced facial editing techniques have been proposed
-that leverage the generative power of a pre-trained StyleGAN. To successfully
-edit an image this way, one must first project (or invert) the image into
-the pre-trained generator’s domain. As it turns out, however, StyleGAN’s
-latent space induces an inherent tradeoff between distortion and editability,
-i.e. between maintaining the original appearance and convincingly altering
-some of its attributes. Practically, this means it is still challenging to
-apply ID-preserving facial latent-space editing to faces which are out of the
-generator’s domain. In this paper, we present an approach to bridge this
-gap. Our technique slightly alters the generator, so that an out-of-domain
-image is faithfully mapped into an in-domain latent code. The key idea is
-pivotal tuning — a brief training process that preserves the editing quality
-of an in-domain latent region, while changing its portrayed identity and
-appearance. In Pivotal Tuning Inversion (PTI), an initial inverted latent code
-serves as a pivot, around which the generator is fined-tuned. At the same
-time, a regularization term keeps nearby identities intact, to locally contain
-the effect. This surgical training process ends up altering appearance features
-that represent mostly identity, without affecting editing capabilities.
-To supplement this, we further show that pivotal tuning can also adjust the
-generator to accommodate a multitude of faces, while introducing negligible
-distortion on the rest of the domain. We validate our technique through
-inversion and editing metrics, and show preferable scores to state-of-the-art
-methods. We further qualitatively demonstrate our technique by applying
-advanced edits (such as pose, age, or expression) to numerous images of
-well-known and recognizable identities. Finally, we demonstrate resilience
-to harder cases, including heavy make-up, elaborate hairstyles and/or headwear,
-which otherwise could not have been successfully inverted and edited
-by state-of-the-art methods. -->
-
-<a href="https://arxiv.org/abs/2106.05744"><img src="https://img.shields.io/badge/arXiv-2008.00951-b31b1b.svg"></a>
-<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>  
-Inference Notebook: <a href="https://colab.research.google.com/github/danielroich/PTI/blob/main/notebooks/inference_playground.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" height=20></a>  
-
-<p align="center">
-<img src="docs/teaser.jpg"/>  
 <br>
 Pivotal Tuning Inversion (PTI) enables employing off-the-shelf latent based
 semantic editing techniques on real images using StyleGAN. 
@@ -48,14 +12,6 @@ are clearly out-of-domain, e.g., due to heavy makeup (bottom).
 Official Implementation of our PTI paper + code for evaluation metrics. PTI introduces an optimization mechanizem for solving the StyleGAN inversion task.
 Providing near-perfect reconstruction results while maintaining the high editing abilitis of the native StyleGAN latent space W. For more details, see <a href="https://arxiv.org/abs/2106.05744"><img src="https://img.shields.io/badge/arXiv-2008.00951-b31b1b.svg"></a>
 
-## Recent Updates
-**2021.07.01**: Fixed files download phase in the inference notebook. Which might caused the notebook not to run smoothly.
-
-**2021.06.29**: Added support for CPU. In order to run PTI on CPU please change `device` parameter under `configs/global_config.py` to "cpu" instead of "cuda".
-
-**2021.06.25** : Adding mohawk edit using StyleCLIP+PTI in inference notebook.
-	      Updating documentation in inference notebook due to Google Drive rate limit reached.
-	      Currently, Google Drive does not allow to download the pretrined models using Colab automatically. Manual intervention might be needed.
 
 ## Getting Started
 ### Prerequisites
